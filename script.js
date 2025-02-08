@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const canvas = new fabric.Canvas('canvas');
 
     // تحميل الصورة
-    fabric.Image.fromURL('IMG_20250208_201307.png', function(img) {
+    fabric.Image.fromURL('https://imgur.com/a/wrpXVLD', function(img) {
         img.scaleToWidth(500); // تغيير حجم الصورة لتناسب Canvas
         canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
     });
