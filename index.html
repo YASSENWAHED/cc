@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إنشاء صورة مع نص</title>
+    <title>تعديل الصورة</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>إنشاء صورة مع نص</h1>
-        <textarea id="textInput" placeholder="أدخل النص هنا..."></textarea>
-        <button onclick="generateImage()">إنشاء الصورة</button>
-        <div id="imageContainer">
-            <canvas id="canvas" width="500" height="500"></canvas>
+        <h1>تعديل الصورة</h1>
+        <div id="inputs">
+            <label for="text1">النص في الخانة 1:</label>
+            <input type="text" id="text1" placeholder="أدخل النص هنا...">
+            <label for="text2">النص في الخانة 2:</label>
+            <input type="text" id="text2" placeholder="أدخل النص هنا...">
+            <!-- أضف المزيد من الحقول حسب الحاجة -->
+            <button onclick="updateText()">تحديث الصورة</button>
+        </div>
+        <div id="canvasContainer">
+            <canvas id="canvas" width="500" height="700"></canvas>
         </div>
     </div>
     <script src="script.js"></script>
