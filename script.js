@@ -1,30 +1,40 @@
-function generateImage() {
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    const textInput = document.getElementById('textInput').value;
+document.addEventListener('DOMContentLoaded', function () {
+    const canvas = new fabric.Canvas('canvas');
 
-    // تنظيف Canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // تحميل الصورة
+    fabric.Image.fromURL('IMG_20250208_201307.png', function(img) {
+        img.scaleToWidth(500); // تغيير حجم الصورة لتناسب Canvas
+        canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
+    });
 
-    // تعيين خلفية بيضاء
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // إضافة حقول النص في المواضع المحددة
+    const text1 = new fabric.Textbox('', {
+        left: 50, // تعديل الموضع حسب الخانة
+        top: 100, // تعديل الموضع حسب الخانة
+        width: 200,
+        fontSize: 16,
+        fontFamily: 'Arial',
+        textAlign: 'right'
+    });
 
-    // تعيين خصائص النص
-    ctx.fillStyle = '#000000';
-    ctx.font = '30px Arial';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
+    const text2 = new fabric.Textbox('', {
+        left: 50, // تعديل الموضع حسب الخانة
+        top: 150, // تعديل الموضع حسب الخانة
+        width: 200,
+        fontSize: 16,
+        fontFamily: 'Arial',
+        textAlign: 'right'
+    });
 
-    // كتابة النص في وسط الصورة
-    const x = canvas.width / 2;
-    const y = canvas.height / 2;
-    ctx.fillText(textInput, x, y);
+    canvas.add(text1, text2);
 
-    // تحويل Canvas إلى صورة
-    const image = canvas.toDataURL('image/png');
+    window.updateText = function() {
+        const input1 = document.getElementById('text1').value;
+        const input2 = document.getElementById('text2').value;
 
-    // عرض الصورة للمستخدم
-    const imageContainer = document.getElementById('imageContainer');
-    imageContainer.innerHTML = `<img src="${image}" alt="Generated Image">`;
-}
+        text1.set('text', input1);
+        text2.set('text', input2);
+
+        canvas.renderAll();
+    };
+});
