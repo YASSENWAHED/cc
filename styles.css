@@ -7,24 +7,32 @@ body {
 }
 
 .container {
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
-textarea {
+#inputs {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input {
     width: 80%;
-    height: 100px;
-    margin: 20px 0;
     padding: 10px;
-    font-size: 16px;
+    margin-top: 5px;
 }
 
 button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 20px;
 }
 
-#imageContainer {
+#canvasContainer {
     margin-top: 20px;
 }
 
